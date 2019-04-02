@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -212,38 +212,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>` ``<br>
-class ReadFile{</p>
-<p>static Map map = new HashMap();</p>
-<p>public static void readFileByLines(String fileName) {<br>
-BufferedReader reader = null;<br>
-try {<br>
-FileInputStream file = new FileInputStream(fileName);<br>
-reader = new BufferedReader(new InputStreamReader(file));<br>
-String tempString = null;<br>
-while ((tempString = reader.readLine()) != null) {<br>
-String[] strings = tempString.split(&quot; &quot;);<br>
-if (strings.length != 1) {<br>
-map.put(strings[0], strings[1]);<br>
-}<br>
-}<br>
-} catch (FileNotFoundException e) {<br>
-e.printStackTrace();<br>
-} catch (IOException e2){<br>
-e2.printStackTrace();<br>
-}<br>
-finally {<br>
-if (reader != null) {<br>
-try {<br>
-reader.close();<br>
-} catch (IOException e1) {<br>
-e1.printStackTrace();<br>
-}<br>
-}<br>
-}</p>
-<p>}<br>
-}<br>
-` ``</p>
+                <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadFile</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> Map map = <span class="keyword">new</span> HashMap();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readFileByLines</span><span class="params">(String fileName)</span> </span>&#123;</span><br><span class="line">        BufferedReader reader = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileInputStream file = <span class="keyword">new</span> FileInputStream(fileName);</span><br><span class="line">            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(file));</span><br><span class="line">            String tempString = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">while</span> ((tempString = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                String[] strings = tempString.split(<span class="string">" "</span>);</span><br><span class="line">                <span class="keyword">if</span> (strings.length != <span class="number">1</span>) &#123;</span><br><span class="line">                    map.put(strings[<span class="number">0</span>], strings[<span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e2)&#123;</span><br><span class="line">            e2.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (reader != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    reader.close();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">                    e1.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
