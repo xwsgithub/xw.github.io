@@ -149,14 +149,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -212,7 +212,39 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                
+                <p>` ``<br>
+class ReadFile{</p>
+<p>static Map map = new HashMap();</p>
+<p>public static void readFileByLines(String fileName) {<br>
+BufferedReader reader = null;<br>
+try {<br>
+FileInputStream file = new FileInputStream(fileName);<br>
+reader = new BufferedReader(new InputStreamReader(file));<br>
+String tempString = null;<br>
+while ((tempString = reader.readLine()) != null) {<br>
+String[] strings = tempString.split(&quot; &quot;);<br>
+if (strings.length != 1) {<br>
+map.put(strings[0], strings[1]);<br>
+}<br>
+}<br>
+} catch (FileNotFoundException e) {<br>
+e.printStackTrace();<br>
+} catch (IOException e2){<br>
+e2.printStackTrace();<br>
+}<br>
+finally {<br>
+if (reader != null) {<br>
+try {<br>
+reader.close();<br>
+} catch (IOException e1) {<br>
+e1.printStackTrace();<br>
+}<br>
+}<br>
+}</p>
+<p>}<br>
+}<br>
+` ``</p>
+
                 
 
                 <hr>
