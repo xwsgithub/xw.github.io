@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://www.huweihuang.com/article/test/</loc>
+        <lastmod>2019-04-07T14:11:32.948Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://www.huweihuang.com/article/Codeforces-1140C/</loc>
         <lastmod>2019-04-07T09:24:32.781Z</lastmod>
         <changefreq>weekly</changefreq>
