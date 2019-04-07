@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          java基础关于字典的使用 - 熊伟 | Blog
+          Codeforces 1140C - 熊伟 | Blog
         
     </title>
 
-    <link rel="canonical" href="http://www.huweihuang.com/article/java基础关于字典的使用/">
+    <link rel="canonical" href="http://www.huweihuang.com/article/Codeforces-1140C/">
     
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -71,7 +71,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('article.gif')
+            background-image: url('/img/article_header/article_bg.gif')
             /*post*/
         
     }
@@ -88,14 +88,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Java" title="Java">Java</a>
+                              <a class="tag" href="/tags/#C++算法" title="C++算法">C++算法</a>
                             
                         </div>
-                        <h1>java基础关于字典的使用</h1>
-                        <h2 class="subheading">一些字典的基础语法</h2>
+                        <h1>Codeforces 1140C</h1>
+                        <h2 class="subheading">Codeforces 1140C 题记</h2>
                         <span class="meta">
                             Posted by xiongxiong on
-                            2019-04-04
+                            2019-04-07
                         </span>
                     </div>
                 
@@ -212,29 +212,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>​    字典，一个神奇的东西，可能会问，就什么时候我们会用字典这个东西呢，鄙人现在最通俗的理解就是在一种情况，当两种数据量太大的时候，且这两种数据有着密切的一一对应关系，当然有时候我们能通过建两个数组来解决这种情况，而字典更合适用于当你找到其中的一个值，需要你找与之对应的值，如果用数组我们只能通过找下标来获取另一个值（即为key-value），但当数据量太大的时候明显不是一个最优选择。这时候就是字典发挥作用的时候了，举一个例子，当需要你去将一篇超级长的文章剖析，需要你将每个单词出现的频率给记录下来，这时候字典就能起到完美的作用，不停的插键改值。未完待续。。。</p>
-<p>​    而在Java中又将Map(字典)派生出了几种类，都有各自的用处。</p>
-<blockquote>
-<p><strong>HashMap</strong>：我们最常用的Map，它根据key的HashCode 值来存储数据,根据key可以直接获取它的Value，同时它具有很快的访问速度。HashMap最多只允许一条记录的key值为Null(多条会覆盖);允许多条记录的Value为 Null。非同步的。</p>
-</blockquote>
-<blockquote>
-<p><strong>TreeMap</strong>: 能够把它保存的记录根据key排序,默认是按升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。TreeMap不允许key的值为null。非同步的。</p>
-</blockquote>
-<blockquote>
-<p><strong>Hashtable</strong>: 与 HashMap类似,不同的是:key和value的值均不允许为null;它支持线程的同步，即任一时刻只有一个线程能写Hashtable,因此也导致了Hashtale在写入时会比较慢。</p>
-</blockquote>
-<blockquote>
-<p><strong>LinkedHashMap</strong>: 保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的.在遍历的时候会比HashMap慢。key和value均允许为空，非同步的。</p>
-</blockquote>
-<p>​    当然，一般我们用HashMap就能处理各种问题。基础用法是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;type,type&gt; map=<span class="keyword">new</span> HashMap(); <span class="comment">//type指的为类型</span></span><br></pre></td></tr></table></figure>
-<p>当你使用上述语句来new一个Map时，将这个Map的键和值的类型给固定了，比较灵活的用法是</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map map=<span class="keyword">new</span> HashMap();</span><br></pre></td></tr></table></figure>
-<p>但如果不固定类型，会有一些比较灵活的方法用不了，至于是什么，举个例子</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(Map.Entry&lt;type,type&gt; entry :map.entrySet())&#123;</span><br><span class="line">            System.out.println(entry);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果没有固定Map中键和值的类型，将不能用Entry来进行迭代。Entry是定义在Map类里的一种数据类型，可以理解为一个Entry里面有一个key和与之对应的value。</p>
-<p>下面为Map的常用方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span>: 删除Map中所以键值对。</span></span><br><span class="line"><span class="function">  </span></span><br><span class="line"><span class="function">2、<span class="keyword">boolean</span> <span class="title">containsKey</span><span class="params">(Object key)</span>: 查询Map中是否包含指定key，如果包含则返回<span class="keyword">true</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">3、<span class="keyword">boolean</span> <span class="title">containsValue</span><span class="params">(Object value)</span>: 查询Map中是否包含指定value，如果包含则返回<span class="keyword">true</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">4、Set <span class="title">entrySet</span><span class="params">()</span>: 返回Map中所包含的键值对所组成的Set集合，每个集合元素都是Map.Entry对象<span class="params">(Entry是Map的内部类)</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">5、Object <span class="title">get</span><span class="params">(Object key)</span>: 返回指定key所对应的value，如Map中不包含key则返回<span class="keyword">null</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">6、<span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span>: 查询Map是否为空，如果空则返回<span class="keyword">true</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">7、Set <span class="title">keySet</span><span class="params">()</span>: 返回该Map中所有key所组成的set集合。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">8、Object <span class="title">put</span><span class="params">(Object key,Object value)</span>: 添加一个键值对，如果已有一个相同的key值则新的键值对覆盖旧的键值对。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">9、<span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map m)</span>: 将指定Map中的键值对复制到Map中,不常用。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">10、Object <span class="title">remove</span><span class="params">(Object key)</span>: 删除指定key所对应的键值对，返回可以所关联的value，如果key不存在，返回<span class="keyword">null</span>。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">11、<span class="keyword">int</span> <span class="title">size</span><span class="params">()</span>: 返回该Map里的键值对的个数。</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">12、Collection <span class="title">values</span><span class="params">()</span>: 返回该Map里所有value组成的Collection</span></span><br></pre></td></tr></table></figure>
+                <h2 id="题面">题面</h2>
+<p>You have a playlist consisting of 𝑛n songs. The 𝑖i-th song is characterized by two numbers 𝑡𝑖ti and 𝑏𝑖bi — its length and beauty respectively. The pleasure of listening to set of songs is equal to the total length of the songs in the set multiplied by the minimum beauty among them. For example, the pleasure of listening to a set of 33 songs having lengths [5,7,4][5,7,4] and beauty values [11,14,6][11,14,6] is equal to (5+7+4)⋅6=96(5+7+4)⋅6=96.</p>
+<p>You need to choose <strong>at most</strong> 𝑘k songs from your playlist, so the pleasure of listening to the set of these songs them is maximum possible.</p>
+<p><strong>Input</strong></p>
+<p>The first line contains two integers 𝑛n and 𝑘k (1≤𝑘≤𝑛≤3⋅1051≤k≤n≤3⋅105) – the number of songs in the playlist and the maximum number of songs you can choose, respectively.</p>
+<p>Each of the next 𝑛n lines contains two integers 𝑡𝑖ti and 𝑏𝑖bi (1≤𝑡𝑖,𝑏𝑖≤1061≤ti,bi≤106) — the length and beauty of 𝑖i-th song.</p>
+<p><strong>Output</strong></p>
+<p>Print one integer — the maximum pleasure you can get.</p>
+<p>![image-20190407163658706](/Users/xiongwei/Library/Application Support/typora-user-images/image-20190407163658706.png)</p>
+<p>Note</p>
+<p>In the first test case we can choose songs 1,3,41,3,4, so the total pleasure is (4+3+6)⋅6=78(4+3+6)⋅6=78.</p>
+<p>In the second test case we can choose song 33. The total pleasure will be equal to 100⋅100=10000100⋅100=10000.</p>
+<h2 id="题解">题解</h2>
+<p>题目的意思为，给你n首歌，每首歌有length和对应的beauty,从中选最多k首歌，计算pleause.</p>
+<p>pleause=sum(length)*min(beauty)</p>
+<p>总之可能就是一首歌的pleasure都可能比多首歌造成的pleasure大，因为beauty只能取最小的，因为所有被选中的歌都共用一个beauty，所以在这里得抓住beauty.可以这么理解，当固定一个beauty时，对应的最大pleasure是唯一的（只要取最大length即可），所以为了加快效率，先根据beauty和length排序（beauty优先).然后再对排完序之后的进行n次遍历，取所有beauty对应的pleasure中的最大值。在求一个beauty对应的最大值时，要将之前的歌的最小length去掉，为了效率，采用了维护最小堆的方法（不用很容易超时）。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">priority_queue&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt;&gt;q</span><br><span class="line"><span class="comment">//后面两个参数可以省略，中间的为指定的容器，默认为vector,最后一个参数不加默认最大堆，加了为最小堆。</span></span><br></pre></td></tr></table></figure>
+<p>后面题解看代码部分：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">3e5</span>+<span class="number">10</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> len,bty;</span><br><span class="line">&#125;x[maxn];</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node x,node y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.bty!=y.bty?x.bty&gt;y.bty:x.len&gt;y.len;</span><br><span class="line">&#125;</span><br><span class="line">priority_queue&lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt;&gt;q;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,k;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">cin</span>&gt;&gt;x[i].len&gt;&gt;x[i].bty;</span><br><span class="line">    sort(x,x+n,cmp);</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans=<span class="number">0</span>,sum=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        q.push(x[i].len);</span><br><span class="line">        sum+=x[i].len;</span><br><span class="line">        <span class="keyword">if</span>(q.size()&gt;k)&#123;</span><br><span class="line">            sum-=q.top();</span><br><span class="line">            q.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        ans=max(ans,sum*x[i].bty);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
                 
 
@@ -242,13 +238,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/article/Codeforces-1140C/" data-toggle="tooltip" data-placement="top" title="Codeforces 1140C">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/article/Java读写文件/" data-toggle="tooltip" data-placement="top" title="Java读写文件">Next Post &rarr;</a>
+                            <a href="/article/java基础关于字典的使用/" data-toggle="tooltip" data-placement="top" title="java基础关于字典的使用">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -304,7 +296,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#题面"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x9898;&#x9762;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#题解"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x9898;&#x89E3;</span></a></li></ol>
         
         </div>
       </aside>
@@ -324,7 +316,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Java" title="Java">Java</a>
+                          <a class="tag" href="/tags/#C++算法" title="C++算法">C++算法</a>
                         
                     </div>
                 </section>
