@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -220,6 +220,15 @@
 <p><strong>子类静态变量初始化&gt;子类静态构造函数&gt;父类静态变量初始化 &gt; 父类静态构造函数 &gt; 父类实例变量初始化&gt;父类实例构造函数 &gt; 子类实例变量初始化&gt;本身实例构造函数。</strong></p>
 <h2 id="super">super</h2>
 <p>super()只能调用上一代的父类的构造函数，不能夸代调用,必须放第一行,且只能在在构造函数调用。</p>
+<h2 id="覆盖重写与重载">覆盖（重写）与重载</h2>
+<p>重写超类方法时，可以保持或提升访问级别，但不允许降低方法的访问级别。即父类中该方法为protected，子类必须为public或protected。</p>
+<h2 id="多态性">多态性</h2>
+<h3 id="编译时多态">编译时多态</h3>
+<p>也称静态多态性，</p>
+<h3 id="运行时多态">运行时多态</h3>
+<h2 id="向上转型">向上转型</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>;</span><br><span class="line">A a=<span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
+<p>这时a不能调用B类新增的方法和新增的成员变量，但可以调用B类重写的方法，同名1属性还是调用A（自己）的。</p>
 
                 
 
@@ -285,7 +294,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7EE7;&#x627F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#优先级"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#super"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">super</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7EE7;&#x627F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#优先级"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#super"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">super</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#覆盖重写与重载"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x8986;&#x76D6;&#xFF08;&#x91CD;&#x5199;&#xFF09;&#x4E0E;&#x91CD;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#多态性"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x591A;&#x6001;&#x6027;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#编译时多态"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">&#x7F16;&#x8BD1;&#x65F6;&#x591A;&#x6001;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行时多态"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#向上转型"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x5411;&#x4E0A;&#x8F6C;&#x578B;</span></a></li></ol>
         
         </div>
       </aside>
