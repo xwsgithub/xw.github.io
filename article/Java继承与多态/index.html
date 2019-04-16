@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -221,14 +221,63 @@
 <h2 id="super">super</h2>
 <p>super()只能调用上一代的父类的构造函数，不能夸代调用,必须放第一行,且只能在在构造函数调用。</p>
 <h2 id="覆盖重写与重载">覆盖（重写）与重载</h2>
-<p>重写超类方法时，可以保持或提升访问级别，但不允许降低方法的访问级别。即父类中该方法为protected，子类必须为public或protected。</p>
+<p>重载：签名不同的同名函数间</p>
+<blockquote>
+<p>子类中继承了父类的方法，同时可增加新方法与之重载</p>
+</blockquote>
+<p>覆盖：子类中的方法原型和父类中的方法原型一致</p>
+<blockquote>
+<ul>
+<li>
+<p>覆盖超类方法时，可以保持或提升访问级别，但不允许降低方法的访问级别。即父类中该方法为protected，子类必须为public或protected。</p>
+</li>
+<li>
+<p>子类不能覆盖父类中声明为final或者static的方法。</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>说明：在JDK5中，允许子类将覆盖方法的返回类型定义成原返回类型的子类型</p>
+</blockquote>
 <h2 id="多态性">多态性</h2>
 <h3 id="编译时多态">编译时多态</h3>
-<p>也称静态多态性，</p>
+<p>也称静态多态性，表现为方法重载和变量的隐藏。</p>
 <h3 id="运行时多态">运行时多态</h3>
+<p>也称动态多态性，表现为继承机制中的方法覆盖（重写）和向上转型来实现。即动态多态性的实现可以通过向上转型对象调用各子类重写的方法，使得运行后，各子类对象可以得到彼此不同的功能行为。</p>
 <h2 id="向上转型">向上转型</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>;</span><br><span class="line">A a=<span class="keyword">new</span> B();</span><br></pre></td></tr></table></figure>
-<p>这时a不能调用B类新增的方法和新增的成员变量，但可以调用B类重写的方法，同名1属性还是调用A（自己）的。</p>
+<p>这时a不能调用B类新增的方法和新增的成员变量，但可以调用B类重写的方法，同名属性还是调用A（自己）的。</p>
+<h2 id="equals方法">equals方法</h2>
+<p>附源代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (<span class="keyword">this</span> == anObject) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">           String anotherString = (String)anObject;</span><br><span class="line">           <span class="keyword">int</span> n = value.length;</span><br><span class="line">           <span class="keyword">if</span> (n == anotherString.value.length) &#123;</span><br><span class="line">               <span class="keyword">char</span> v1[] = value;</span><br><span class="line">               <span class="keyword">char</span> v2[] = anotherString.value;</span><br><span class="line">               <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">               <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                   <span class="keyword">if</span> (v1[i] != v2[i])</span><br><span class="line">                       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                   i++;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码说明，只有String类的equals被覆盖，其他类的equals都默认为引用是否相等。</p>
+<h2 id="final">final</h2>
+<ul>
+<li>防止类重载</li>
+<li>防止方法重写</li>
+<li>创建常量</li>
+</ul>
+<h2 id="interface">Interface</h2>
+<ul>
+<li>
+<p>接口声明</p>
+<p>接口通过使用关键字interface来声明，格式：</p>
+<p>interface 接口的名字</p>
+</li>
+<li>
+<p>接口体</p>
+<p>接口体中包含常量定义(默认 <strong>public final</strong>,可省)和方法定义(默认 <strong>public abstract</strong>,可省)两部分。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- <span class="class"><span class="keyword">interface</span> <span class="title">Printable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX=<span class="number">100</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p>接口的使用</p>
+<p>一个类通过使用关键字implements声明自己实现一个或多个接口。</p>
+<p>class A implements Printable, Addable{}</p>
+<p>class Cat extends Animal implements Eatable, Sleepable</p>
+</li>
+</ul>
+</li>
+</ul>
 
                 
 
@@ -294,7 +343,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7EE7;&#x627F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#优先级"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#super"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">super</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#覆盖重写与重载"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x8986;&#x76D6;&#xFF08;&#x91CD;&#x5199;&#xFF09;&#x4E0E;&#x91CD;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#多态性"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x591A;&#x6001;&#x6027;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#编译时多态"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">&#x7F16;&#x8BD1;&#x65F6;&#x591A;&#x6001;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行时多态"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#向上转型"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x5411;&#x4E0A;&#x8F6C;&#x578B;</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#继承"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">&#x7EE7;&#x627F;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#优先级"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">&#x4F18;&#x5148;&#x7EA7;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#super"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">super</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#覆盖重写与重载"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">&#x8986;&#x76D6;&#xFF08;&#x91CD;&#x5199;&#xFF09;&#x4E0E;&#x91CD;&#x8F7D;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#多态性"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">&#x591A;&#x6001;&#x6027;</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#编译时多态"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">&#x7F16;&#x8BD1;&#x65F6;&#x591A;&#x6001;</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#运行时多态"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#向上转型"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">&#x5411;&#x4E0A;&#x8F6C;&#x578B;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#equals方法"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">equals&#x65B9;&#x6CD5;</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#final"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">final</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#interface"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">Interface</span></a></li></ol>
         
         </div>
       </aside>
