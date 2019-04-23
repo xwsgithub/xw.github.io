@@ -142,14 +142,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,6 +216,7 @@
 <p>实现代码的重用，提高程序的可维护性,final子类不可被继承，不加关键字默认为友元子类。</p>
 <p>在同一包中，子类能继承超类中的所有非private成员（public, protected和缺省）。</p>
 <p>不同包中，子类能继承超类中的public, protected成员。</p>
+<p>父类实现了的接口方法是会被子类继承的,对于子类来说继承过来的都是父类方法,没有接口的区别了</p>
 <h2 id="优先级">优先级</h2>
 <p><strong>子类静态变量初始化&gt;子类静态构造函数&gt;父类静态变量初始化 &gt; 父类静态构造函数 &gt; 父类实例变量初始化&gt;父类实例构造函数 &gt; 子类实例变量初始化&gt;本身实例构造函数。</strong></p>
 <h2 id="super">super</h2>
@@ -266,14 +267,18 @@
 </li>
 <li>
 <p>接口体</p>
-<p>接口体中包含常量定义(默认 <strong>public final</strong>,可省)和方法定义(默认 <strong>public abstract</strong>,可省)两部分。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- <span class="class"><span class="keyword">interface</span> <span class="title">Printable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX=<span class="number">100</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>接口体中包含常量定义(默认 <strong>public static final</strong>,可省)和方法定义(默认 <strong>public abstract</strong>,可省)两部分。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Printable</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX=<span class="number">100</span>;  </span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
 <p>接口的使用</p>
 <p>一个类通过使用关键字implements声明自己实现一个或多个接口。</p>
 <p>class A implements Printable, Addable{}</p>
-<p>class Cat extends Animal implements Eatable, Sleepable</p>
+<p>class Cat extends Animal implements Eatable, Sleepable{}</p>
+</li>
+<li>
+<p>接口的继承</p>
+<p>和类的继承不一样的地方在于，接口的继承可以多继承。</p>
 </li>
 </ul>
 </li>
